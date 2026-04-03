@@ -39,16 +39,14 @@ app.get("/api/test-groq", async (req, res) => {
   }
 });
 // ── CORS ──────────────────────────────────────────────────────────────────────
+
+
 app.use(
   cors({
-    origin: [
-      "http://localhost:5174",
-      "https://quiziq-hg2tsw9fm-honeywadwas-projects.vercel.app"
-    ],
+    origin: "https://quiziq-jq1r9asja-honeywadwas-projects.vercel.app",
     credentials: true,
   })
 );
-
 // ── Body parsing ──────────────────────────────────────────────────────────────
 app.use(express.json({ limit: "10kb" }));
 app.use(express.urlencoded({ extended: true }));
