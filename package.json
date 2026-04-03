@@ -1,0 +1,22 @@
+{
+  "name": "quiziq",
+  "version": "1.0.0",
+  "private": true,
+  "description": "QuizIQ — AI-Powered Adaptive Quiz Platform (Monorepo)",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "seed": "cd backend && npm run seed",
+    "build": "cd frontend && npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "mongodb": "^7.1.1",
+    "mongoose": "^9.3.3"
+  }
+}
