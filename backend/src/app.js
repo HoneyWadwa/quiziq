@@ -41,10 +41,22 @@ app.get("/api/test-groq", async (req, res) => {
 // ── CORS ──────────────────────────────────────────────────────────────────────
 app.use(
   cors({
-    origin: true, // allow all origins dynamically
+    origin: function (origin, callback) {
+      if (
+        !origin || // for tools like Postman
+        origin.includes("vercel.app") || // allow ALL vercel deployments
+        origin.includes("localhost")
+      ) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   })
 );
+
+
 
 app.options("*", cors());
 // ── Body parsing ──────────────────────────────────────────────────────────────
