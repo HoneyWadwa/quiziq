@@ -41,7 +41,10 @@ app.get("/api/test-groq", async (req, res) => {
 // ── CORS ──────────────────────────────────────────────────────────────────────
 app.use(
   cors({
-    origin: [process.env.CLIENT_URL, "http://localhost:5174"],
+    origin: [
+      "http://localhost:5174",
+      "https://quiziq-hg2tsw9fm-honeywadwas-projects.vercel.app"
+    ],
     credentials: true,
   })
 );
